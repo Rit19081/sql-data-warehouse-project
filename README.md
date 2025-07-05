@@ -101,3 +101,49 @@ data-warehouse-project/
 └── requirements.txt                    # Dependencies and requirements for the project
 ```
 ---
+
+## 💼 What is **CRM**?
+
+**CRM** stands for **Customer Relationship Management**.
+
+* It's a system used to manage a company’s interactions with **current and potential customers**.
+* CRM systems help in **sales, marketing, support**, and tracking customer behaviors.
+* The **CRM tables** in your project are most likely populated from a CRM software (like Salesforce, Zoho, HubSpot, etc.).
+
+### 🧾 Example CRM Tables in Your Case:
+
+| Table               | Meaning                                          |
+| ------------------- | ------------------------------------------------ |
+| `crm_cust_info`     | Customer details like name, contact, email, etc. |
+| `crm_prd_info`      | Product catalog visible to customers             |
+| `crm_sales_details` | Sales transactions involving customers           |
+
+---
+
+## 🏭 What is **ERP**?
+
+**ERP** stands for **Enterprise Resource Planning**.
+
+* It’s a system used to **manage business operations** like **inventory, procurement, HR, accounting, logistics**, etc.
+* ERP systems integrate internal data across departments.
+* Think of systems like SAP, Oracle ERP, Microsoft Dynamics, etc.
+
+### 🗂️ Example ERP Tables in Your Case:
+
+| Table             | Meaning                                                   |
+| ----------------- | --------------------------------------------------------- |
+| `erp_loc_a101`    | Possibly physical location or warehouse/store details     |
+| `erp_cust_az12`   | Master customer data from ERP side (may differ from CRM!) |
+| `erp_px_cat_g1v2` | Product categories, pricing, or inventory classifications |
+
+---
+
+## 🎯 CRM vs ERP in Simple Terms:
+
+| Feature  | CRM                             | ERP                                  |
+| -------- | ------------------------------- | ------------------------------------ |
+| Focus    | Customers                       | Business operations                  |
+| Users    | Sales, Marketing, Support teams | Supply chain, Finance, HR, Logistics |
+| Examples | Contact mgmt, customer sales    | Inventory, payroll, procurement      |
+
+---
