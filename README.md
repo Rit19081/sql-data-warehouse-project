@@ -195,6 +195,72 @@ Captures sales orders including products purchased, customer IDs, dates, and fin
 
 ---
 
+# 📘 CSV Source File Documentation (Extended — ERP Files)
+
+---
+
+## 4. `erp_loc_a101` — Location Information
+
+Represents physical locations such as countries where customers, warehouses, or stores exist.
+
+| Column Name | Description                                                                 | Example         |
+| ----------- | --------------------------------------------------------------------------- | --------------- |
+| **CID**     | Location identifier / code (primary key or foreign key in related datasets) | `NASAW00011000` |
+| **CNTRY**   | Country name (geographic location)                                          | `United States` |
+
+**Notes on `CNTRY` values:**
+
+* Valid country names include: *Australia, US, Canada, DE, United Kingdom, France, USA, Germany, United States*.
+* Some entries contain **duplicates or inconsistent naming** (e.g., `US` vs `USA` vs `United States`, `DE` vs `Germany`).
+* `0` may represent a missing or invalid entry.
+  👉 In practice, this should be standardized for reporting/analysis.
+
+---
+
+## 5. `erp_cust_az12` — ERP Customer Master Data
+
+Master customer records maintained in ERP, which may differ from CRM (`crm_cust_info`).
+
+| Column Name | Description                                                           | Example         |
+| ----------- | --------------------------------------------------------------------- | --------------- |
+| **CID**     | Unique customer identifier in ERP system                              | `NASAW00011000` |
+| **BDATE**   | Birth date of customer                                                | `06-10-1971`    |
+| **GEN**     | Gender of customer (`Male`, `Female`, or other values depending data) | `Male`          |
+
+---
+
+## 6. `erp_px_cat_g1v2` — Product Categories and Classifications
+
+Represents product categories, subcategories, and possibly maintenance flags for catalog and pricing.
+
+| Column Name     | Description                                                                 | Example          |
+| --------------- | --------------------------------------------------------------------------- | ---------------- |
+| **ID**          | Unique identifier for category/subcategory entry                            | `101`            |
+| **CAT**         | High-level product category                                                 | `Bikes`          |
+| **SUBCAT**      | Detailed subcategory within the category                                    | `Mountain Bikes` |
+| **MAINTENANCE** | Field reserved for maintenance flag or notes (may indicate active/inactive) | *blank / value*  |
+
+**Valid values in `CAT`:**
+
+* Accessories
+* Bikes
+* Clothing
+* Components
+
+**Valid values in `SUBCAT`:**
+
+* **Accessories:** Bike Racks, Bike Stands, Bottles and Cages, Cleaners, Fenders, Helmets, Hydration Packs, Lights, Locks, Panniers, Pumps, Tires and Tubes
+* **Bikes:** Mountain Bikes, Road Bikes, Touring Bikes
+* **Clothing:** Bib-Shorts, Caps, Gloves, Jerseys, Shorts, Socks, Tights, Vests
+* **Components:** Bottom Brackets, Brakes, Chains, Cranksets, Derailleurs, Forks, Handlebars, Headsets, Mountain Frames, Pedals, Road Frames, Saddles, Touring Frames, Wheels
+
+---
+
+✅ Now your CRM + ERP files have **uniform documentation**.
+
+* CRM deals with **customers, products, sales** (customer-facing).
+* ERP deals with **locations, customer master, and product categories** (back-office).
+
 ## 🎯 CRM vs ERP in Simple Terms:
 
 | Feature  | CRM                             | ERP                                  |
