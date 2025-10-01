@@ -120,6 +120,63 @@ data-warehouse-project/
 
 ---
 
+# 📘 CSV Source File Documentation
+
+This dataset contains three main CSVs that capture **customer information**, **product catalog**, and **sales transactions**.
+Below is the documentation for each file and its column headings.
+
+---
+
+## 1. `crm_cust_info` — Customer Information
+
+Contains details of customers including demographic attributes and creation date.
+
+| Column Name            | Description                                                        | Example      |
+| ---------------------- | ------------------------------------------------------------------ | ------------ |
+| **cst_id**             | Unique numeric identifier for the customer (surrogate key)         | `11000`      |
+| **cst_key**            | Business key / alternate key used in external systems              | `AW00011000` |
+| **cst_firstname**      | Customer’s first name                                              | `Jon`        |
+| **cst_lastname**       | Customer’s last name                                               | `Yang`       |
+| **cst_marital_status** | Marital status of the customer (`M` = Married, `S` = Single, etc.) | `M`          |
+| **cst_gndr**           | Gender of the customer (`M` = Male, `F` = Female)                  | `M`          |
+| **cst_create_date**    | Date when the customer record was created                          | `06-10-2025` |
+
+---
+
+## 2. `crm_prd_info` — Product Catalog
+
+Represents product details visible to customers, including product line classification.
+
+| Column Name      | Description                                                                                                                                                        | Example                     |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------- |
+| **prd_id**       | Unique numeric identifier for the product (surrogate key)                                                                                                          | `210`                       |
+| **prd_key**      | Business key representing product code                                                                                                                             | `CO-RF-FR-R92B-58`          |
+| **prd_nm**       | Product name / description                                                                                                                                         | `HL Road Frame - Black- 58` |
+| **prd_cost**     | Standard cost or unit price of the product                                                                                                                         | `12`                        |
+| **prd_line**     | Product Line category (high-level classification): <br>• `R` = Road <br>• `M` = Mountain <br>• `T` = Touring <br>• `S` = Standard (accessories, helmets, clothing) | `R`                         |
+| **prd_start_dt** | Date when the product became available                                                                                                                             | `01-07-2003`                |
+| **prd_end_dt**   | Date when the product was discontinued (blank if still active)                                                                                                     | `28-12-2007`                |
+
+---
+
+## 3. `crm_sales_details` — Sales Transactions
+
+Captures sales orders including products purchased, customer IDs, dates, and financial details.
+
+| Column Name      | Description                                                                                   | Example      |
+| ---------------- | --------------------------------------------------------------------------------------------- | ------------ |
+| **sls_ord_num**  | Sales order number (unique identifier for transaction)                                        | `SO43697`    |
+| **sls_prd_key**  | Product key (links to `prd_key` in `crm_prd_info`)                                            | `BK-R93R-62` |
+| **sls_cust_id**  | Customer ID (links to `cst_id` in `crm_cust_info`)                                            | `21768`      |
+| **sls_order_dt** | Date when the order was placed                                                                | `20101229`   |
+| **sls_ship_dt**  | Date when the order was shipped                                                               | `20110105`   |
+| **sls_due_dt**   | Due date for payment or delivery                                                              | `20110110`   |
+| **sls_sales**    | Total sales amount for the transaction                                                        | `3578`       |
+| **sls_quantity** | Quantity of items ordered                                                                     | `1`          |
+| **sls_price**    | Unit price at which the product was sold (may differ from `prd_cost` due to markup/discounts) | `3578`       |
+
+---
+
 ## 🏭 What is **ERP**?
 
 **ERP** stands for **Enterprise Resource Planning**.
